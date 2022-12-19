@@ -1,40 +1,65 @@
 import {
-  ADD_TOKEN_ID,
-  REMOVE_TOKEN_ID,
   ADD_USER_NAME,
-  REMOVE_USER_NAME,
-  ADD_USER_PHOTO,
-  REMOVE_USER_PHOTO,
-  // IS_CLOSE,
-  // IS_OPEN
+  IS_CLOSE,
+  IS_OPEN,
+  DATE,
+  APP,
+  REQUEST,
+  RESPONSE,
+  RATE,
+  CLICK,
+  CTR,
+  IMPRESSION,
+  REVENUE,
 } from "./actiontype";
 
-export const add_token_id = (payload) => ({
-  type: ADD_TOKEN_ID,
+export const date_fun = (payload) => ({
+  type: DATE,
+  payload,
+});
+export const app_fun = (payload) => ({
+  type: APP,
+  payload,
+});
+export const request_fun = (payload) => ({
+  type: REQUEST,
+  payload,
+});
+export const response_fun = (payload) => ({
+  type: RESPONSE,
+  payload,
+});
+export const click_fun = (payload) => ({
+  type: CLICK,
+  payload,
+});
+export const impression_fun = (payload) => ({
+  type: IMPRESSION,
+  payload,
+});
+export const revenue_fun = (payload) => ({
+  type: REVENUE,
+  payload,
+});
+export const rate_fun = (payload) => ({
+  type: RATE,
+  payload,
+});
+export const ctr_fun = (payload) => ({
+  type: CTR,
   payload,
 });
 
-export const remove_token_id = (payload) => ({
-  type: REMOVE_TOKEN_ID,
+export const is_open = (payload) => ({
+  type: IS_OPEN,
   payload,
 });
 
+export const is_close = (payload) => ({
+  type: IS_CLOSE,
+  payload,
+});
 export const add_user_name = (payload) => ({
   type: ADD_USER_NAME,
-  payload,
-});
-
-export const remove_user_name = (payload) => ({
-  type: REMOVE_USER_NAME,
-  payload,
-});
-
-export const add_user_photo = (payload) => ({
-  type: ADD_USER_PHOTO,
-  payload,
-});
-
-export const remove_user_photo = (payload) => ({
-  type: REMOVE_USER_PHOTO,
   payload,
 });

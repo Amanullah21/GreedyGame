@@ -1,53 +1,120 @@
 import {
-  add_token_id,
   add_user_name,
-  add_user_photo,
-  remove_token_id,
-  remove_user_name,
-  remove_user_photo,
+  app,
+  app_fun,
+  click_fun,
+  ctr_fun,
+  date,
+  date_fun,
+  impression_fun,
   is_close,
-  is_open
+  is_open,
+  rate_fun,
+  request_fun,
+  response_fun,
+  revenue_fun,
 } from "./action";
 import {
-  ADD_TOKEN_ID,
   ADD_USER_NAME,
-  ADD_USER_PHOTO,
-  REMOVE_TOKEN_ID,
-  REMOVE_USER_NAME,
-  REMOVE_USER_PHOTO,
+  APP,
+  CLICK,
+  CTR,
+  DATE,
+  IMPRESSION,
   IS_CLOSE,
-  IS_OPEN
+  IS_OPEN,
+  RATE,
+  REQUEST,
+  RESPONSE,
+  REVENUE,
 } from "./actiontype";
 import { initStates } from "./constatnt";
 
 export const reducer = (state = initStates, { type, payload }) => {
   switch (type) {
-    // case IS_OPEN: {
-    //   is_open("isOpen", payload);
-    //   return {
-    //     ...state,
-    //     close:payload
-    //   };
-    // }
-    // case IS_CLOSE: {
-    //   is_close("isOpen", payload);
-    //   return {
-    //     ...state,
-    //     close:payload
-    //   };
-    // }
-    case ADD_TOKEN_ID: {
-      add_token_id("addtokenid", payload);
+    case DATE: {
+      date_fun("date function", payload);
       return {
         ...state,
-        token: payload,
+        date: payload,
       };
     }
-    case REMOVE_TOKEN_ID: {
-      remove_token_id("addtokenid");
+    case APP: {
+      app_fun("app function", payload);
       return {
         ...state,
-        token: "",
+        app: payload,
+      };
+    }
+
+    case CLICK: {
+      click_fun("click function", payload);
+      return {
+        ...state,
+        click: payload,
+      };
+    }
+
+    case RESPONSE: {
+      response_fun("response function", payload);
+      return {
+        ...state,
+        response: payload,
+      };
+    }
+
+    case REQUEST: {
+      request_fun("request function", payload);
+      return {
+        ...state,
+        request: payload,
+      };
+    }
+
+    case IMPRESSION: {
+      impression_fun(" impression function", payload);
+      return {
+        ...state,
+        impression: payload,
+      };
+    }
+
+    case REVENUE: {
+      revenue_fun("revenue function", payload);
+      return {
+        ...state,
+        revenue: payload,
+      };
+    }
+
+    case RATE: {
+      rate_fun("rate function", payload);
+      return {
+        ...state,
+        rate: payload,
+      };
+    }
+
+    case CTR: {
+      ctr_fun("ctr function", payload);
+      return {
+        ...state,
+        ctr: payload,
+      };
+    }
+
+    case IS_OPEN: {
+      is_open("isOpen", payload);
+      return {
+        ...state,
+        Boolean: payload,
+      };
+    }
+    case IS_CLOSE: {
+      is_close("isOpen", payload);
+      return {
+        ...state,
+        Boolean: payload,
       };
     }
 
@@ -56,29 +123,6 @@ export const reducer = (state = initStates, { type, payload }) => {
       return {
         ...state,
         user: payload,
-      };
-    }
-
-    case REMOVE_USER_NAME: {
-      remove_user_name("removeUser", payload);
-      return {
-        ...state,
-        user: "GreenDuck",
-      };
-    }
-
-    case ADD_USER_PHOTO: {
-      add_user_photo("addUserPhoto", payload);
-      return {
-        ...state,
-        user: payload,
-      };
-    }
-    case REMOVE_USER_PHOTO: {
-      remove_user_photo("removeUserPhoto", payload);
-      return {
-        ...state,
-        user: "",
       };
     }
 
