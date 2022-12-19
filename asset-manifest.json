@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GreedyGame/static/css/main.a010c891.css",
-    "main.js": "/GreedyGame/static/js/main.aa34233d.js",
+    "main.js": "/GreedyGame/static/js/main.b6069f51.js",
     "static/js/787.9736a52a.chunk.js": "/GreedyGame/static/js/787.9736a52a.chunk.js",
     "index.html": "/GreedyGame/index.html",
     "main.a010c891.css.map": "/GreedyGame/static/css/main.a010c891.css.map",
-    "main.aa34233d.js.map": "/GreedyGame/static/js/main.aa34233d.js.map",
+    "main.b6069f51.js.map": "/GreedyGame/static/js/main.b6069f51.js.map",
     "787.9736a52a.chunk.js.map": "/GreedyGame/static/js/787.9736a52a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a010c891.css",
-    "static/js/main.aa34233d.js"
+    "static/js/main.b6069f51.js"
   ]
 }
