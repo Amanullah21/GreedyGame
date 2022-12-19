@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "../Styles/DimensionTable.module.css";
 import {
   app_fun,
   click_fun,
@@ -13,12 +13,11 @@ import {
   response_fun,
   revenue_fun,
 } from "../Redux/InitState/action";
-import styled from "../Styles/DimensionTable.module.css";
 
 const DimensionTable = () => {
   const state = useSelector((state) => state);
-  console.log(state);
   const dispatch = useDispatch();
+
   return (
     <div className={styled.dimensionTable_container}>
       <div className={styled.dimensionText}>Dimensions and Metrics</div>
@@ -42,7 +41,7 @@ const DimensionTable = () => {
           className={state.click ? styled.clickBox : styled.box}
         >
           <div />
-          CLick
+          CLicks
         </div>
         <div
           onClick={() => dispatch(request_fun(!state.request))}

@@ -2,25 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "../Styles/Table.module.css";
 import appLogo from "./AppLogo";
-// import filter from ""
+import { filterLogo } from "./AppLogo";
 const Table = () => {
   const [data, setData] = useState([]);
   const state = useSelector((state) => state);
-  const filterLogo =
-    "https://img.favpng.com/20/1/11/filter-png-favpng-jy84QKYq24gnCEBR2MX55zVAt.jpg";
-
+ 
   let url =
     "http://go-dev.greedygame.com/v3/dummy/report?startDate=2022-12-10&endDate=2022-12-15";
+
   const getData = () => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => setData(res.data)) //store data
       .catch((error) => console.log(error));
   };
-  // console.log();
-  useEffect(() => {
-    getData();
-  }, []);
+  useEffect(() => getData(), []);
+
   function ConvertJsonDate(jsonDate) {
     let ans = "";
     for (let i = 0; i < 10; i++) {
@@ -28,6 +25,7 @@ const Table = () => {
     }
     return ans.split("-").reverse().join("-");
   }
+
   const convertToInternationalCurrencySystem = (labelValue) => {
     return Math.abs(Number(labelValue)) >= 1.0e9
       ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"

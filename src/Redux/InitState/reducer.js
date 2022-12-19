@@ -1,10 +1,7 @@
 import {
-  add_user_name,
-  app,
   app_fun,
   click_fun,
   ctr_fun,
-  date,
   date_fun,
   end_date,
   impression_fun,
@@ -17,7 +14,6 @@ import {
   start_date,
 } from "./action";
 import {
-  ADD_USER_NAME,
   APP,
   CLICK,
   CTR,
@@ -134,14 +130,6 @@ export const reducer = (state = initStates, { type, payload }) => {
       return {
         ...state,
         Boolean: payload,
-      };
-    }
-
-    case ADD_USER_NAME: {
-      add_user_name("addUser", payload);
-      return {
-        ...state,
-        user: payload,
       };
     }
 

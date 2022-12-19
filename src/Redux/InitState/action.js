@@ -1,6 +1,4 @@
 import {
-  ADD_USER_NAME,
-  IS_CLOSE,
   IS_OPEN,
   DATE,
   APP,
@@ -13,6 +11,7 @@ import {
   REVENUE,
   START_DATE,
   END_DATE,
+  IS_CLOSE,
 } from "./actiontype";
 
 export const date_fun = (payload) => ({
@@ -70,7 +69,4 @@ export const is_close = (payload) => ({
   type: IS_CLOSE,
   payload,
 });
-export const add_user_name = (payload) => ({
-  type: ADD_USER_NAME,
-  payload,
-});
+

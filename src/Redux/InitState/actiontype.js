@@ -1,8 +1,6 @@
 export const IS_OPEN = "IS_OPEN";
 export const IS_CLOSE = "IS_CLOSE";
 
-export const ADD_USER_NAME = "ADD_USER_NAME";
-
 export const APP = "APP";
 export const DATE = "DATE";
 export const CLICK = "CLICK";
