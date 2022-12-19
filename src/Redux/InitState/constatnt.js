@@ -1,6 +1,6 @@
 export const initStates = {
-  name: "cacli",
-  Boolean: true,
+  name: "Aman",
+  Boolean: false,
   date: true,
   app: true,
   click: true,
@@ -10,4 +10,6 @@ export const initStates = {
   revenue: true,
   rate: true,
   ctr: true,
+  startDate: new Date(),
+  endDate: new Date(),
 };

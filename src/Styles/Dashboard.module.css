@@ -4,13 +4,7 @@
   background-color: red;
   gap: 80%;
 }
-.date {
-  height: 35px;
-  margin: 5px;
-  width: 150px;
-  border: 0.5px #f3f3f3 solid;
-  border-radius: 5px;
-}
+
 
 .setting_btn {
   height: 35px;

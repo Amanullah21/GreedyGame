@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import DataPicker from "../Components/DataPicker";
 import DimensionTable from "../Components/DimensionTable";
 import Table from "../Components/Table";
 import { is_close, is_open } from "../Redux/InitState/action";
@@ -9,18 +10,13 @@ const Dashboard = () => {
   const user = useSelector((state) => state.name);
   const boolen = useSelector((state) => state.Boolean);
   const dispatch = useDispatch();
-  // const [close, setClose] = useState(false);
-  console.log(boolen);
 
   return (
     <div>
-      <h3 style={{paddingLeft:"25px"}}>Analytics</h3>
+      <h3 style={{ paddingLeft: "25px" }}>Analytics</h3>
       <div className={styled.dashboard_container}>
         <div>
-          {" "}
-          <button className={styled.date}>
-            july 08 - jul 14, 2021
-          </button>{" "}
+          <DataPicker />
         </div>
         <div onClick={() => dispatch(is_open(true))}>
           <button className={styled.setting_btn}>
@@ -34,7 +30,7 @@ const Dashboard = () => {
         </div>
       </div>
       {boolen ? <DimensionTable /> : <></>}
-      <Table/>
+      <Table />
     </div>
   );
 };

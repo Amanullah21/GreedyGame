@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "../Styles/Table.module.css";
+import appLogo from "./AppLogo";
 // import filter from ""
 const Table = () => {
   const [data, setData] = useState([]);
@@ -10,33 +11,23 @@ const Table = () => {
 
   let url =
     "http://go-dev.greedygame.com/v3/dummy/report?startDate=2022-12-10&endDate=2022-12-15";
-
-  const getTodo = () => {
+  const getData = () => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => setData(res.data)) //store data
       .catch((error) => console.log(error));
   };
-
-  useEffect(() => getTodo(), []);
-  console.log(data.length);
-
-  function ConvertJsonDateString(jsonDate) {
-    var shortDate = null;
-    if (jsonDate) {
-      var regex = /-?\d+/;
-      var matches = regex.exec(jsonDate);
-      var dt = new Date(parseInt(matches[0]));
-      var month = dt.getMonth() + 1;
-      var monthString = month > 9 ? month : "0" + month;
-      var day = dt.getDate();
-      var dayString = day > 9 ? day : "0" + day;
-      var year = dt.getFullYear();
-      shortDate = monthString + "-" + dayString + "-" + year;
+  // console.log();
+  useEffect(() => {
+    getData();
+  }, []);
+  function ConvertJsonDate(jsonDate) {
+    let ans = "";
+    for (let i = 0; i < 10; i++) {
+      ans += jsonDate[i];
     }
-    return shortDate;
+    return ans.split("-").reverse().join("-");
   }
-
   const convertToInternationalCurrencySystem = (labelValue) => {
     return Math.abs(Number(labelValue)) >= 1.0e9
       ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
@@ -46,6 +37,7 @@ const Table = () => {
       ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
       : Math.abs(Number(labelValue));
   };
+
   return (
     <div className={styled.table_container}>
       <div className={styled.table_head}>
@@ -107,7 +99,7 @@ const Table = () => {
           <div>
             <img className={styled.filter_logo} src={filterLogo} alt="logo" />
             <p>Revenue</p>
-            <div>{data.length}</div>
+            <div>{`$ 35613`}</div>
           </div>
         ) : (
           <></>
@@ -132,15 +124,19 @@ const Table = () => {
         )}
       </div>
       <hr />
-      {data.map((ele) => (
-        <div className={styled.tableBody}>
-          {state.date ? <div>{ConvertJsonDateString(ele.date)}</div> : <></>}
-          {state.app ? <div>{ele.app_id}</div> : <></>}
+      {data.map((ele, index) => (
+        <div className={styled.tableBody} key={index}>
+          {state.date ? <div>{ConvertJsonDate(ele.date)}</div> : <></>}
+          {state.app ? <div>{appLogo[ele.app_id]}</div> : <></>}
           {state.click ? <div>{ele.clicks}</div> : <></>}
           {state.request ? <div>{ele.requests}</div> : <></>}
           {state.response ? <div>{ele.responses}</div> : <></>}
-          {state.impression ? <div>{ele.impressions}</div> : <></>}
-          {state.revenue ? <div>{ele.revenue}</div> : <></>}
+          {state.impression ? (
+            <div>{convertToInternationalCurrencySystem(ele.impressions)}</div>
+          ) : (
+            <></>
+          )}
+          {state.revenue ? <div>${ele.revenue.toFixed(2)}</div> : <></>}
           {state.rate ? <div>{"dsfsd"}</div> : <></>}
           {state.ctr ? <div>{"sfsdf"}</div> : <></>}
         </div>

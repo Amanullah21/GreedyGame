@@ -19,8 +19,6 @@ const DimensionTable = () => {
   const state = useSelector((state) => state);
   console.log(state);
   const dispatch = useDispatch();
-  // console.log(boolen, "di");
-  console.log(state.app, state.date);
   return (
     <div className={styled.dimensionTable_container}>
       <div className={styled.dimensionText}>Dimensions and Metrics</div>

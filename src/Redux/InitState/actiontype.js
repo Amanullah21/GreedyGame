@@ -12,3 +12,6 @@ export const IMPRESSION = "IMPRESSION";
 export const REVENUE = "REVENUE";
 export const RATE = "RATE";
 export const CTR = "CTR";
+
+export const START_DATE = "START_DATE";
+export const END_DATE = "END_DATE";

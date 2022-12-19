@@ -6,6 +6,7 @@ import {
   ctr_fun,
   date,
   date_fun,
+  end_date,
   impression_fun,
   is_close,
   is_open,
@@ -13,6 +14,7 @@ import {
   request_fun,
   response_fun,
   revenue_fun,
+  start_date,
 } from "./action";
 import {
   ADD_USER_NAME,
@@ -20,6 +22,7 @@ import {
   CLICK,
   CTR,
   DATE,
+  END_DATE,
   IMPRESSION,
   IS_CLOSE,
   IS_OPEN,
@@ -27,6 +30,7 @@ import {
   REQUEST,
   RESPONSE,
   REVENUE,
+  START_DATE,
 } from "./actiontype";
 import { initStates } from "./constatnt";
 
@@ -100,6 +104,21 @@ export const reducer = (state = initStates, { type, payload }) => {
       return {
         ...state,
         ctr: payload,
+      };
+    }
+
+    case START_DATE: {
+      start_date("rate function", payload);
+      return {
+        ...state,
+        startDate: payload,
+      };
+    }
+    case END_DATE: {
+      end_date("rate function", payload);
+      return {
+        ...state,
+        endDate: payload,
       };
     }
 
