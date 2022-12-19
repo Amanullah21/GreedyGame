@@ -62,7 +62,7 @@ const Table = () => {
         {state.click ? (
           <div>
             <img className={styled.filter_logo} src={filterLogo} alt="logo" />
-            <p>Click</p>
+            <p>Clicks</p>
             <div>{`54545 B`}</div>
           </div>
         ) : (
@@ -90,7 +90,7 @@ const Table = () => {
           <div>
             <img className={styled.filter_logo} src={filterLogo} alt="logo" />
             <p>Impresion</p>
-            <div>{data.length}</div>
+            <div>{`432 B`}</div>
           </div>
         ) : (
           <></>
@@ -108,7 +108,7 @@ const Table = () => {
           <div>
             <img className={styled.filter_logo} src={filterLogo} alt="logo" />
             <p>Rate</p>
-            <div>{data.length}</div>
+            <div>{`97.43%`}</div>
           </div>
         ) : (
           <></>
@@ -117,13 +117,12 @@ const Table = () => {
           <div>
             <img className={styled.filter_logo} src={filterLogo} alt="logo" />
             <p>CTR</p>
-            <div>{data.length}</div>
+            <div>{"34%"}</div>
           </div>
         ) : (
           <></>
         )}
       </div>
-      <hr />
       {data.map((ele, index) => (
         <div className={styled.tableBody} key={index}>
           {state.date ? <div>{ConvertJsonDate(ele.date)}</div> : <></>}
@@ -137,8 +136,16 @@ const Table = () => {
             <></>
           )}
           {state.revenue ? <div>${ele.revenue.toFixed(2)}</div> : <></>}
-          {state.rate ? <div>{"dsfsd"}</div> : <></>}
-          {state.ctr ? <div>{"sfsdf"}</div> : <></>}
+          {state.rate ? (
+            <div>{`${((ele.requests / ele.responses) * 100).toFixed()} %`}</div>
+          ) : (
+            <></>
+          )}
+          {state.ctr ? (
+            <div>{`${((ele.clicks / ele.impressions) * 100).toFixed()} %`}</div>
+          ) : (
+            <></>
+          )}
         </div>
       ))}
     </div>

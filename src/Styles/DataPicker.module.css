@@ -6,8 +6,17 @@
 }
 .DataPicker {
   height: 30px;
+  background-color: white;
+  /* border: blue 1px solid; */
+  box-shadow: 10px 10px 5px lightblue;
+
+  transition: 1s ease-in-out;
   cursor: pointer;
   width: 70px;
   border: 0.5px #f3f3f3 solid;
   border-radius: 5px;
+}
+.DataPicker:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 -10px 20px rgba(252, 14, 14, 0.2);
 }

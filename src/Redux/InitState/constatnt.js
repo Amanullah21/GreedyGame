@@ -1,6 +1,6 @@
 export const initStates = {
   name: "Aman",
-  Boolean: false,
+  Boolean: true,
   date: true,
   app: true,
   click: true,

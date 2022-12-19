@@ -88,12 +88,7 @@ const DimensionTable = () => {
         </div>
       </div>
       <div className={styled.applyClosebtn_Container}>
-        <button
-          style={{ color: "blue" }}
-          onClick={() => dispatch(is_close(false))}
-        >
-          Close
-        </button>
+        <button onClick={() => dispatch(is_close(false))}>Close me</button>
       </div>
     </div>
   );
