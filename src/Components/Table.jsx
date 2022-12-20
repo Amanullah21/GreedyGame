@@ -73,7 +73,7 @@ const Table = () => {
                   <option value="Age Calculator">Age Calculator</option>
                 </select>
                 <br />
-                <button
+                <button className={styled.hidebtn}
                   onClick={() => {
                     setFilterApp(!filterApp);
                   }}

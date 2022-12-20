@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className={styled.nav}>
-        <h3 style={{ paddingLeft: "25px" }}>Analytic</h3>
+        <h3 style={{ paddingLeft: "25px" }}>Analytics</h3>
         <div className={styled.dashboard_container}>
           <div>
             <DataPicker />
