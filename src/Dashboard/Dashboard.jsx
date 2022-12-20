@@ -30,7 +30,7 @@ const Dashboard = () => {
       </div>
       {boolen ? <DimensionTable /> : <></>}
       <Table />
-      <MyComponent />
+      {/* <MyComponent /> */}
     </div>
   );
 };
