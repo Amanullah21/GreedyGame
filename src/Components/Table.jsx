@@ -4,7 +4,7 @@ import styled from "../Styles/Table.module.css";
 import appLogo from "./AppLogo";
 import { filterLogo } from "./AppLogo";
 const Table = () => {
-  const [filterApp, setFilterApp] = useState(true);
+  const [filterApp, setFilterApp] = useState(false);
   const [filterAppData, setFilterAppData] = useState("");
 
   const [data, setData] = useState([]);
