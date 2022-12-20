@@ -4,9 +4,12 @@ import styled from "../Styles/Table.module.css";
 import appLogo from "./AppLogo";
 import { filterLogo } from "./AppLogo";
 const Table = () => {
+  const [filterApp, setFilterApp] = useState(true);
+  const [filterAppData, setFilterAppData] = useState("");
+
   const [data, setData] = useState([]);
   const state = useSelector((state) => state);
- 
+
   let url =
     "http://go-dev.greedygame.com/v3/dummy/report?startDate=2022-12-10&endDate=2022-12-15";
 
@@ -17,7 +20,7 @@ const Table = () => {
       .catch((error) => console.log(error));
   };
   useEffect(() => getData(), []);
-
+  // console.log(filterAppData);
   function ConvertJsonDate(jsonDate) {
     let ans = "";
     for (let i = 0; i < 10; i++) {
@@ -50,7 +53,38 @@ const Table = () => {
         )}
         {state.app ? (
           <div>
-            <img className={styled.filter_logo} src={filterLogo} alt="logo" />
+            <img
+              onClick={() => setFilterApp(!filterApp)}
+              className={styled.filter_logo}
+              src={filterLogo}
+              alt="logo"
+            />
+            {filterApp ? (
+              <div className={styled.filter_box}>
+                <select
+                  name="AppsName"
+                  id="appName"
+                  onChange={(e) => setFilterAppData(e.target.value)}
+                >
+                  <option value="Panda Draw">Panda Draw</option>
+                  <option value="Number Ninja">Number Ninja</option>
+                  <option value="Word Crush">Word Crush</option>
+                  <option value="Brain Quiz">Brain Quiz</option>
+                  <option value="Age Calculator">Age Calculator</option>
+                </select>
+                <br />
+                <button
+                  onClick={() => {
+                    setFilterApp(!filterApp);
+                  }}
+                >
+                  Submit
+                </button>
+              </div>
+            ) : (
+              <></>
+            )}
+
             <p>App</p>
             <div>{data.length * 8}</div>
           </div>
