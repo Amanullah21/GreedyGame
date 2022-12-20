@@ -11,7 +11,7 @@ const Table = () => {
   const state = useSelector((state) => state);
 
   let url =
-    "http://go-dev.greedygame.com/v3/dummy/report?startDate=2022-12-10&endDate=2022-12-15";
+    "https://go-dev.greedygame.com/v3/dummy/report?startDate=2022-12-10&endDate=2022-12-15";
 
   const getData = () => {
     fetch(url)
